@@ -1,19 +1,17 @@
 # == Schema Information
 #
-# Table name: goals
+# Table name: goal_comments
 #
 #  id         :integer          not null, primary key
 #  body       :text             not null
+#  goal_id    :integer          not null
 #  user_id    :integer          not null
-#  visibility :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Goal < ActiveRecord::Base
-  validates :body, :visibility, :user_id, presence: true
-  validates :visibility, inclusion: ["Public", "Private"]
+require 'rails_helper'
 
-  belongs_to :user
-  has_many :goal_comments
+RSpec.describe GoalComment, :type => :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

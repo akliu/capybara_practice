@@ -1,10 +1,14 @@
 class GoalsController < ApplicationController
+
   def index
     @goals = Goal.all
   end
 
   def show
     @goal = Goal.find(params[:id])
+    if @goal.visibility == "Private" && current_user.id != @goal.user_id
+      redirect_to goals_url
+    end
   end
 
   def new

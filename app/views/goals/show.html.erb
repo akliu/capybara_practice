@@ -1,5 +1,25 @@
 <h1><%= @goal.body %></h1>
 
+
+<ul>
+<% @goal.goal_comments.each do |comment| %>
+  <li><%= comment.body %></li>
+<% end %>
+</ul>
+
+<form action="<%= goal_comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token  %>">
+  <input type="hidden" name="goal_comment[goal_id]" value="<%= @goal.id %>">
+
+  <label for="comment">Comment on Goal</label>
+  <textarea name="goal_comment[body]" id="comment" rows="8" cols="40"></textarea>
+
+  <input type="submit" value="Add Comment">
+
+</form>
+
+
+
 <%= link_to "Goals", goals_url %>
 <%= link_to "Edit Goal", edit_goal_url(@goal) %>
 <%= button_to "Remove Goal", goal_url(@goal), method: :delete %>

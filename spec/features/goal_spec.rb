@@ -2,10 +2,12 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature "goal's index page" do
+  given(:user) { create(:user) }
+
   before(:each) do
     visit new_user_url
-    fill_in 'username', :with => "testing_username"
-    fill_in 'password', :with => "biscuits"
+    fill_in 'username', :with => user.username
+    fill_in 'password', :with => user.password
     click_on 'Create User'
 
     click_on 'Add Goal'
@@ -23,10 +25,12 @@ feature "goal's index page" do
 end
 
 feature "goal's show page" do
+  given(:user) { create(:user) }
+
   before(:each) do
     visit new_user_url
-    fill_in 'username', :with => "testing_username"
-    fill_in 'password', :with => "biscuits"
+    fill_in 'username', :with => user.username
+    fill_in 'password', :with => user.password
     click_on 'Create User'
     click_on 'Add Goal'
     fill_in 'Goal', :with => "My first goal"
@@ -63,10 +67,12 @@ feature "goal's show page" do
 end
 
 feature "goals' new page" do
+  given(:user) { create(:user) }
+
   before(:each) do
     visit new_user_url
-    fill_in 'username', :with => "testing_username"
-    fill_in 'password', :with => "biscuits"
+    fill_in 'username', :with => user.username
+    fill_in 'password', :with => user.password
     click_on 'Create User'
     click_on 'Add Goal'
   end

@@ -2,7 +2,9 @@
 
 <ul>
  <% @goals.each do |goal| %>
+  <% if goal.user_id == current_user.id || goal.visibility == "Public" %>
    <li><%= link_to goal.body, goal_url(goal) %></li>
+  <% end %>
  <% end %>
 </ul>
 
