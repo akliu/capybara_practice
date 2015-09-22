@@ -1,4 +1,5 @@
 class GoalsController < ApplicationController
+  before_action :require_log_in
 
   def index
     @goals = Goal.all

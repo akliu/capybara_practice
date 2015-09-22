@@ -12,8 +12,8 @@
 
 FactoryGirl.define do
   factory :user_comment do
-    body "MyText"
-user_id 1
+    body { Faker::Commerce.product_name }
+    commenting_user_id { (1..15).to_a.sample }
+    commented_user_id { (1..15).to_a.sample }
   end
-
 end

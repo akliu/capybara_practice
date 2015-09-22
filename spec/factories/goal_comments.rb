@@ -12,8 +12,9 @@
 
 FactoryGirl.define do
   factory :goal_comment do
-    body "MyText"
-goal_id 1
+    body { Faker::Company.catch_phrase }
+    goal_id { (1..50).to_a.sample }
+    user_id { (1..15).to_a.sample }
   end
 
 end

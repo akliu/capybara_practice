@@ -10,6 +10,7 @@
 #  updated_at      :datetime         not null
 #
 
+
 FactoryGirl.define do
   factory :user do
     username { Faker::Internet.user_name }

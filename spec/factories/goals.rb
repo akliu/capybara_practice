@@ -13,7 +13,7 @@
 FactoryGirl.define do
   factory :goal do
     body { Faker::Hacker.say_something_smart }
-    user_id 1
+    user_id { (1..17).to_a.sample }
     visibility "Public"
   end
 
